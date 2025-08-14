@@ -10,8 +10,7 @@ const copyToClipboard = async () => {
       return;
     }
 
-    const currentUrl = new URL(window.location.origin + window.location.hash);
-    currentUrl.searchParams.set("to", target_url.value);
+    const currentUrl = new URL(window.location.origin + '#/' + '?to=' + target_url.value);
 
     if (navigator.clipboard && navigator.clipboard.writeText) {
       await navigator.clipboard.writeText(currentUrl.toString());
@@ -39,12 +38,13 @@ const copyToClipboard = async () => {
     <el-row style="width: 100%;">
       <el-col :xs="2" :sm="2" :lg="4"></el-col>
       <el-col :xs="20" :sm="20" :lg="16">
-        <el-form style="justify-content: center;" @submit="()=>{copyToClipboard();return false;}">
-          <el-form-item label="Target URL" label-position="top" style="width: 100%;">
+        <el-form style="justify-content: center;" @submit.prevent="()=>{copyToClipboard();}">
+          <el-form-item label="Target URL" label-position="top" style="width: 100%;" size="large">
             <el-input
                 style="width: 100%;"
                 v-model="target_url"
                 placeholder="Enter URL here"
+                size="large"
             ></el-input>
           </el-form-item>
           <el-form-item>
