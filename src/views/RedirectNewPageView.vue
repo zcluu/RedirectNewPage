@@ -48,7 +48,7 @@ onBeforeUnmount(() => {
             v-for="(text, index) in loadingText"
             :style="{'--i': index,'--d': 1 / loadingText.length * 2}"
         >
-          <el-text size="large" style="color: var(--el-color-black)">{{ text }}</el-text>
+          <el-text size="large" class="loading-text-item">{{ text }}</el-text>
         </span>
         </div>
       </template>
@@ -63,7 +63,7 @@ onBeforeUnmount(() => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: calc(100vh - 120px);
 }
 
 .loading-icon {
@@ -97,5 +97,12 @@ onBeforeUnmount(() => {
   100% {
     transform: translateY(.1em);
   }
+}
+
+.loading-text-item {
+  color: var(--el-color-black);
+}
+html.dark .loading-text-item {
+  color: var(--el-color-white);
 }
 </style>
