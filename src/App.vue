@@ -1,9 +1,10 @@
 <script setup>
-import {RouterView} from 'vue-router'
+import {RouterView, useRouter} from 'vue-router'
 import {ref, watch, onMounted} from "vue";
 import SwitchDarkButton from "@/components/SwitchDarkButton.vue";
 
 const isDark = ref(false);
+const router = useRouter();
 
 const switchBtnClassName = ref("switch-btn-dark");
 
@@ -35,9 +36,11 @@ onMounted(() => {
       <div style="flex: 1"></div>
       <el-space :size="30">
         <el-link
-            href="https://scholar.google.com/citations?user=byXIEVMAAAAJ&hl=en"
-            target="_blank"
-        >Google Scholar
+            @click="()=>{
+              router.push({ name:'new' })
+            }"
+            target="_self"
+        >New Page
         </el-link>
         <el-link
             href="https://zcluu.github.io/#/"

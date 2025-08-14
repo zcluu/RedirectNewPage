@@ -11,7 +11,9 @@ const redirectPage = () => {
   const target = route.query.to
   if (target) {
     window.location.href = target
-    window.location.replace('about:blank')
+    if (!target.startsWith("http")) {
+      window.location.replace('about:blank')
+    }
   }
 }
 
@@ -102,6 +104,7 @@ onBeforeUnmount(() => {
 .loading-text-item {
   color: var(--el-color-black);
 }
+
 html.dark .loading-text-item {
   color: var(--el-color-white);
 }
