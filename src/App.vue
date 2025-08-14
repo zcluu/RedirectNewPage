@@ -5,7 +5,6 @@ import SwitchDarkButton from "@/components/SwitchDarkButton.vue";
 
 const isDark = ref(false);
 const router = useRouter();
-
 const switchBtnClassName = ref("switch-btn-dark");
 
 watch(isDark, () => {

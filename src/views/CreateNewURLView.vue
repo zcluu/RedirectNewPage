@@ -10,7 +10,7 @@ const copyToClipboard = async () => {
       return;
     }
 
-    const currentUrl = new URL(window.location.origin);
+    const currentUrl = new URL(window.location.origin + window.location.hash);
     currentUrl.searchParams.set("to", target_url.value);
 
     await navigator.clipboard.writeText(currentUrl.toString());
