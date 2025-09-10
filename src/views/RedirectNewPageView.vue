@@ -7,6 +7,8 @@ const loadingText = "Loading...";
 const route = useRoute();
 const router = useRouter();
 
+document.title = route.query.to
+
 const redirectPage = () => {
   const target = route.query.to
   if (target) {
