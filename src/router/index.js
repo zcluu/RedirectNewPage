@@ -16,4 +16,8 @@ const router = createRouter({
     ],
 })
 
+router.beforeEach((to, from, next) => {
+    document.title = to.query.to || 'New Page'
+    next()
+})
 export default router
